@@ -1,4 +1,5 @@
 <!doctype html>
+<!--loading static files-->
 {% load static %}
 
 <html lang="en">
@@ -27,8 +28,19 @@
     </header>
 
     <main>
-        {% block main %}
-        {% endblock %}
+        <div class="container-fluid p-5">
+            <!--handling massages and showing them in our page-->
+            {% if massages %}
+                {% for massage in massages %}
+                    <div class="alert alert-success">{{ massage }}</div>
+                {% endfor %}
+            {% endif %}
+
+            {% block main %}
+            {% endblock %}
+
+        </div>
+
     </main>
 
     <footer>
